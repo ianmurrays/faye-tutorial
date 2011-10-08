@@ -1,0 +1,14 @@
+<style type="text/css" media="screen">
+  .alert { color: #666; }
+</style>
+
+<div style="margin: 0 auto; border: 1px solid #ccc; width: 500px">
+  <div style="overflow: auto; border-bottom: 1px solid #ccc;" id="chat_container">
+    <p class="alert"> Welcome to the chat room <%= session[:username] %>! </p>
+  </div>
+  
+  <%= form_tag new_message_path do %>
+    <%= text_field_tag :message %>
+    <%= submit_tag "Send" %>
+  <% end %>
+</div>
