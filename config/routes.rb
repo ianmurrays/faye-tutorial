@@ -1,5 +1,7 @@
 FayeTutorial::Application.routes.draw do
   get  '/login' => 'sessions#new', :as => :login
+  post '/login' => 'sessions#create', :as => :login
+  get  '/chatroom' => 'chats#room', :as => :chat
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
