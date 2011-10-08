@@ -18,6 +18,8 @@ end
 
 gem 'jquery-rails'
 
+gem 'faye'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
