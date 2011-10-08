@@ -1,9 +1,20 @@
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    var client = new Faye.Client('http://localhost:9292/faye');
+    var subscription = client.subscribe('/messages/public', function(data) {
+      console.log(data)
+      var message = $.parseJSON(data);
+      $('<p></p>').html(message.username + ": " + message.msg).appendTo('#chat_room');
+    });
+  });
+</script>
+
 <div class="chat_container">
   <div id="chat_room">
     <p class="alert"> Welcome to the chat room <%= session[:username] %>! </p>
   </div>
   
-  <%= form_tag new_message_path do %>
+  <%= form_tag new_message_path, :remote => true do %>
     <%= text_field_tag :message %>
     <%= submit_tag "Send" %>
   <% end %>
