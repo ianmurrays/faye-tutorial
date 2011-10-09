@@ -1,10 +1,15 @@
 <script type="text/javascript" charset="utf-8">
   $(function() {
-    var client = new Faye.Client('http://localhost:9292/faye');
-    var subscription = client.subscribe('/messages/public', function(data) {
-      console.log(data)
+    var public_client = new Faye.Client('http://localhost:9292/faye');
+    var subscription = public_client.subscribe('/messages/public', function(data) {
       var message = $.parseJSON(data);
       $('<p></p>').html(message.username + ": " + message.msg).appendTo('#chat_room');
+    });
+    
+    var private_client = new Faye.Client('http://localhost:9292/faye');
+    var private_subscription = private_client.subscribe('/messages/private/<%= session[:username] %>', function(data) {
+      var message = $.parseJSON(data);
+      $('<p></p>').addClass('private').html(message.username + ": " + message.msg).appendTo('#chat_room');
     });
   });
 </script>
