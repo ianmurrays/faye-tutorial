@@ -6,7 +6,11 @@
 .chat_container {
   margin: 0 auto; 
   border: 1px solid #ccc; 
-  width: 500px
+  width: 500px;
+  
+  input[type=text] {
+    width: 80%;
+  }
 }
 
 #chat_room {

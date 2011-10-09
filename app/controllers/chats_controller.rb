@@ -9,6 +9,9 @@ class ChatsController < ApplicationController
     faye = URI.parse 'http://localhost:9292/faye'
     message = {:username => session[:username], :msg => params[:message]}.to_json
     Net::HTTP.post_form(faye, :message => {:channel => '/messages/public', :data => message}.to_json)
-    render :nothing => true
+    
+    respond_to do |f|
+      f.js
+    end
   end
 end
