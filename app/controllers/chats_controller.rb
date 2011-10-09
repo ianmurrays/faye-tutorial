@@ -2,6 +2,7 @@ require "net/http"
 
 class ChatsController < ApplicationController
   def room
+    redirect_to login_path unless session[:username]
   end
   
   def new_message
