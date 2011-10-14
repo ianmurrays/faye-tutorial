@@ -19,6 +19,7 @@ end
 gem 'jquery-rails'
 
 gem 'faye'
+gem 'private_pub'
 
 # Use unicorn as the web server
 # gem 'unicorn'
