@@ -19,7 +19,7 @@ end
 gem 'jquery-rails'
 
 gem 'faye'
-gem 'private_pub'
+gem 'private_pub', :git => 'git://github.com/ryanb/private_pub.git'
 
 # Use unicorn as the web server
 # gem 'unicorn'
